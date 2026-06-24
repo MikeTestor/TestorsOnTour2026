@@ -4,7 +4,7 @@ const tours = [
     tag: 0,
     datum: "Mittwoch, 1. Juli",
     tour: "Ankunft in der Pension Alpina",
-    info: "Abends Ankunft. Sylvia und Rini kommen mit dem Zug. Ankuft um 19:00 am Innsbrucker Hauptbahnhof. Mike und Peter kommen mit dem Auto. Marijke schläft bei Mama und Papa in der Wolkensteinstraße.",
+    info: "Abends Ankunft. Sylvia und Rini kommen mit dem Zug. Ankuft um 19:00 am Innsbrucker Hauptbahnhof. Mike und Peter kommen mit dem Auto. Marijke schläft in ihrem Kinderzimmer in der Wolkensteinstraße :-).",
     image: "Data/images/Day0.webp",
     link: "https://www.cafe-pension-alpina.at/",
   },
