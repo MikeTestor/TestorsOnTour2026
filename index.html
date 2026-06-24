@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testors On Tour 2026</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ── TOP ── */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── MIDDLE ── */
+    .middle {
+      display: flex;
+      flex: 1;
+      gap: 24px;
+      padding: 24px;
+    }
+
+    /* ── MAIN LEFT ── */
+    .main-left {
+      flex: 0 0 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      padding: 16px 20px;
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+      border: 2px solid transparent;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .card.active {
+      border-color: #2980b9;
+    }
+
+    .card-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #888;
+      letter-spacing: 0.8px;
+    }
+
+    .card-value {
+      font-size: 0.95rem;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    .card-action {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .btn-view {
+      background: #2980b9;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-view:hover {
+      background: #1a6fa0;
+    }
+
+    /* ── MAIN RIGHT ── */
+    .main-right {
+      flex: 1;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .detail-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #aaa;
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .detail-content {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .detail-content.visible {
+      display: flex;
+    }
+
+    .detail-image {
+      width: 100%;
+      max-height: 340px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .detail-image-placeholder {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .detail-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .detail-date {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .btn-link {
+      display: inline-block;
+      background: #2980b9;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      padding: 8px 18px;
+      font-size: 0.88rem;
+      transition: background 0.2s;
+    }
+
+    .btn-link:hover {
+      background: #1a6fa0;
+    }
+
+    /* ── BOTTOM ── */
+    footer {
+      background: #2c3e50;
+      color: #ccc;
+      padding: 18px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    footer p {
+      font-size: 0.92rem;
+    }
+
+    footer a {
+      color: #7fb3d3;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP -->
+  <header>
+    <h1>Testors On Tour 2026</h1>
+  </header>
+
+  <!-- MIDDLE -->
+  <div class="middle">
+
+    <!-- MAIN LEFT -->
+    <div class="main-left" id="tourList">
+      <!-- Cards rendered by JS -->
+    </div>
+
+    <!-- MAIN RIGHT -->
+    <div class="main-right" id="detailPanel">
+      <div class="detail-content visible" id="detailContent">
+        <div id="detailImageWrap">
+          <img class="detail-image" src="Data/images/Karwendel.jpg" alt="Karwendel" />
+        </div>
+        <div class="detail-name" id="detailName"></div>
+        <div class="detail-date" id="detailDate"></div>
+        <div id="detailLinkWrap"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <footer>
+    <p>Vier Tage durch den Karwendel marschieren</p>
+    <p>
+      Idee:
+      <a href="https://www.almenrausch.at/touren/detail/durch-das-wilde-karwendel-4-tagesetappen/" target="_blank" rel="noopener noreferrer">
+        https://www.almenrausch.at/touren/detail/durch-das-wilde-karwendel-4-tagesetappen/
+      </a>
+    </p>
+  </footer>
+
+  <script>
+    const tours = [
+      {
+        id: 1,
+        tag: 0,
+        datum: "Mittwoch, 1. Juli",
+        tour: "Ankunft in der Pension Alpina",
+        image: "Data/images/Day0.webp",
+        link: "https://www.cafe-pension-alpina.at/",
+      },
+      {
+        id: 2,
+        tag: 1,
+        datum: "Donnerstag, 2. Juli",
+        tour: "Tag 1: Hafelekarhaus – Mandlscharte – Pfeishütte",
+        image: null,
+        link: "https://www.almenrausch.at/touren/detail/tag-1-hafelekarhaus-mandlscharte-pfeishuette/",
+        image: "Data/images/Day1.jpg",
+      },
+      {
+        id: 3,
+        tag: 2,
+        datum: "Freitag, 3. Juli",
+        tour: "Tag 2: Pfeishütte – Stempeljoch – Lafatscherjoch – Bettelwurfhütte",
+        image: "Data/images/Day2.jpg",
+        link: "https://www.almenrausch.at/touren/detail/tag-2-pfeishuette-stempeljoch-lafatscherjoch-bettelwurfhuette/",
+      },
+      {
+        id: 4,
+        tag: 3,
+        datum: "Samstag, 4. Juli",
+        tour: "Tag 3: Bettelwurfhütte – Lafatscherjoch – Halleranger Alm",
+        image: "Data/images/Day3.jpg",
+        link: "https://www.almenrausch.at/touren/detail/tag-3-bettelwurfhuette-lafatscherjoch-hallerangerhaus/",
+      },
+      {
+        id: 5,
+        tag: 4,
+        datum: "Sonntag, 5. Juli",
+        tour: "Tag 4: Hallerangerhaus – Kastenalm – Scharnitz",
+        image: "Data/images/Day4.jpg",
+        link: "https://www.almenrausch.at/touren/detail/tag-4-hallerangerhaus-kastenalm-scharnitz/",
+      },
+    ];
+
+    let activeId = null;
+
+    function renderCards() {
+      const list = document.getElementById("tourList");
+      list.innerHTML = "";
+      tours.forEach((t) => {
+        const card = document.createElement("div");
+        card.className = "card" + (t.id === activeId ? " active" : "");
+        card.innerHTML = `
+          <div class="card-info">
+            <span class="card-value">${t.datum}</span>
+            <span class="card-value">${t.tour}</span>
+          </div>
+          <div class="card-action">
+            <button class="btn-view" data-id="${t.id}" title="View details">View</button>
+          </div>
+        `;
+        list.appendChild(card);
+      });
+
+      list.querySelectorAll(".btn-view").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          showDetail(parseInt(e.target.dataset.id));
+        });
+      });
+    }
+
+    function showDetail(id) {
+      activeId = id;
+      const tour = tours.find((t) => t.id === id);
+
+      document.getElementById("detailPlaceholder").style.display = "none";
+      const content = document.getElementById("detailContent");
+      content.classList.add("visible");
+
+      const imgWrap = document.getElementById("detailImageWrap");
+      if (tour.image) {
+        imgWrap.innerHTML = `<img class="detail-image" src="${tour.image}" alt="${tour.tour}" />`;
+      } else {
+        imgWrap.innerHTML = `<div class="detail-image-placeholder">[ Bild folgt ]</div>`;
+      }
+
+      document.getElementById("detailName").textContent = tour.tour;
+      document.getElementById("detailDate").textContent = tour.datum;
+
+      const linkWrap = document.getElementById("detailLinkWrap");
+      if (tour.link) {
+        linkWrap.innerHTML = `<a class="btn-link" href="${tour.link}" target="_blank" rel="noopener noreferrer">Open Tour Website ↗</a>`;
+      } else {
+        linkWrap.innerHTML = "";
+      }
+
+      renderCards();
+    }
+
+    renderCards();
+  </script>
+
+</body>
+</html>
