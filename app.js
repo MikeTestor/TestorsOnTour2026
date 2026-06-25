@@ -101,13 +101,21 @@ function showDetail(id) {
   document.getElementById("detailSideText").textContent = tour.info;
 
   renderCards();
+
+  if (window.innerWidth <= 640) {
+    document.querySelector(".main-right").scrollIntoView({ behavior: "smooth" });
+  }
 }
 
 renderCards();
 
 function matchPanelHeights() {
-  const tourList = document.getElementById("tourList");
   const right = document.querySelector(".main-right");
+  if (window.innerWidth <= 640) {
+    right.style.height = "";
+    return;
+  }
+  const tourList = document.getElementById("tourList");
   right.style.height = tourList.offsetHeight + "px";
 }
 
