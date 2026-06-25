@@ -13,7 +13,7 @@ const tours = [
     tag: 1,
     datum: "Donnerstag, 2. Juli",
     tour: "Tag 1: Hafelekarhaus – Mandlscharte – Pfeishütte",
-    info: "Frühstück bis 10:00 Uhr und dann geht es los. Wir fahren mit der Nordkettenbahn auf das Hafelekarhaus und wandern dann über die Mandlscharte zur Pfeishütte.\nCousin Roland ist unser Spezialgast!",
+    info: "Frühstück bis 9:30 Uhr und dann geht es los. Wir fahren mit der Nordkettenbahn auf das Hafelekarhaus und wandern dann über die Mandlscharte zur Pfeishütte.\nCousin Roland ist unser Spezialgast!",
     image: "Data/images/Day1.jpg",
     link: "https://www.almenrausch.at/touren/detail/tag-1-hafelekarhaus-mandlscharte-pfeishuette/",
   },
